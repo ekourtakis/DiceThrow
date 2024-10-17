@@ -17,7 +17,7 @@ class DieFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            it.getInt(Companion.DIE_SIDE).run {
+            it.getInt(DIE_SIDE).run {
                 dieSides = this
             }
         }
@@ -50,7 +50,7 @@ class DieFragment : Fragment() {
 
         fun newInstance(sides: Int): DieFragment {
             return DieFragment().apply {
-                arguments  = Bundle().apply { putInt(Companion.DIE_SIDE, sides) }
+                arguments  = Bundle().apply { putInt(DIE_SIDE, sides) }
             }
         }
 
