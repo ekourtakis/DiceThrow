@@ -10,8 +10,6 @@ import kotlin.random.Random
 
 class DieFragment : Fragment() {
 
-    val DIESIDE = "sidenumber"
-
     lateinit var dieTextView: TextView
 
     var dieSides: Int = 6
@@ -19,7 +17,7 @@ class DieFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            it.getInt(DIESIDE).run {
+            it.getInt(Companion.DIE_SIDE).run {
                 dieSides = this
             }
         }
@@ -45,5 +43,16 @@ class DieFragment : Fragment() {
 
     fun rollDie() {
         dieTextView.text = Random.nextInt(1, dieSides+1).toString()
+    }
+
+    companion object {
+        const val DIE_SIDE = "sidenumber"
+
+        fun newInstance(sides: Int): DieFragment {
+            return DieFragment().apply {
+                arguments  = Bundle().apply { putInt(Companion.DIE_SIDE, sides) }
+            }
+        }
+
     }
 }
