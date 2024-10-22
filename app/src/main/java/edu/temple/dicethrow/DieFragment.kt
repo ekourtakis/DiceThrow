@@ -14,7 +14,7 @@ class DieFragment : Fragment() {
 
     private var dieSides: Int = 6
     private var rollVal: Int = 0
-    private val BUNDLE_KEY = "BUNDLE_KEY"
+    private val key = "BUNDLE_KEY"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +38,7 @@ class DieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         savedInstanceState?.run {
-            rollVal = getInt(BUNDLE_KEY)
+            rollVal = getInt(key)
             dieTextView.text = rollVal.toString()
             return
         }
@@ -48,7 +48,7 @@ class DieFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(BUNDLE_KEY, rollVal)
+        outState.putInt(key, rollVal)
     }
 
     fun rollDie() {
@@ -57,7 +57,7 @@ class DieFragment : Fragment() {
     }
 
     companion object {
-        const val DIE_SIDE = "sidenumber"
+        const val DIE_SIDE = "SIDE_NUMBER"
 
         fun newInstance(sides: Int): DieFragment {
             return DieFragment().apply {
