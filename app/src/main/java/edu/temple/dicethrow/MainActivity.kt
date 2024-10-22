@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ButtonInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
                 .commit()
     }
 
-    fun buttonClicked(){
+    override fun buttonClicked(){
         (supportFragmentManager.findFragmentById(R.id.dieContainer) as DieFragment).rollDie()
     }
 }
