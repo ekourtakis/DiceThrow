@@ -14,8 +14,9 @@ class MainActivity : AppCompatActivity() {
                 .beginTransaction()
                 .add(R.id.dieContainer, DieFragment.newInstance(20))
                 .commit()
+    }
 
-//            (supportFragmentManager.findFragmentById(R.id.dieContainer) as DieFragment).rollDie()
-
+    fun buttonClicked(){
+        (supportFragmentManager.findFragmentById(R.id.dieContainer) as DieFragment).rollDie()
     }
 }
