@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import kotlin.random.Random
 
 class DieFragment : Fragment() {
+    val dieViewModel: DieViewModel by lazy {
+        ViewModelProvider(requireActivity())[DieViewModel::class.java]
+    }
 
     private lateinit var dieTextView: TextView
 
@@ -18,6 +22,7 @@ class DieFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             it.getInt(DIE_SIDE).run {
                 dieSides = this
