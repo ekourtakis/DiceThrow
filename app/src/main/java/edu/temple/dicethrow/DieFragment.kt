@@ -44,6 +44,9 @@ class DieFragment : Fragment() {
         dieViewModel.getDieRoll().observe(viewLifecycleOwner) {
             dieTextView.text = it.toString()
         }
+
+        if (dieViewModel.getDieRoll().value == null)
+            rollDie()
     }
 
     fun rollDie() {
