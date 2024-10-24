@@ -10,5 +10,7 @@ class DieViewModel : ViewModel() {
     fun getDieRoll(): LiveData<Int> {
         return dieRoll
     }
-//    fun setDieRoll() {}
+    fun setDieRoll(newRoll: Int) {
+        dieRoll.value = newRoll
+    }
 }
